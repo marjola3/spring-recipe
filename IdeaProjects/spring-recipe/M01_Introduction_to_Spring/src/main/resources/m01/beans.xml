@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+              http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="sequenceGenerator" class="pl.mpolak.m01_list.SequenceGenerator">
+        <property name="prefix" value="30"/>
+        <property name="initial" value="100000"/>
+        <property name="suffixes">
+            <list>
+                <value>A</value>
+                <value>B</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>

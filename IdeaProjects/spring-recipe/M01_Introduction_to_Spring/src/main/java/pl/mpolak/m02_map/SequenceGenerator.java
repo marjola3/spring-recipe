@@ -1,21 +1,20 @@
-package pl.mpolak.m01;
+package pl.mpolak.m02_map;
 
-import java.util.List;
-
+import java.util.Map;
 
 /**
- * Created by Mariola on 2014-12-02.
+ * Created by Mariola on 2015-02-22.
  */
 public class SequenceGenerator {
 
     private String prefix;
-    private List<Object> suffixes;
+    private Map<Object, Object> suffixes;
     private int initial;
     private int counter;
 
     public SequenceGenerator() {}
 
-    public SequenceGenerator(String prefix, List<Object> suffixes, int initial) {
+    public SequenceGenerator(String prefix, Map<Object,Object> suffixes, int initial) {
         this.prefix = prefix;
         this.suffixes = suffixes;
         this.initial = initial;
@@ -25,7 +24,7 @@ public class SequenceGenerator {
         this.prefix = prefix;
     }
 
-    public void setSuffixes(List<Object> suffixes) {
+    public void setSuffixes(Map<Object, Object> suffixes) {
         this.suffixes = suffixes;
     }
 
@@ -35,12 +34,12 @@ public class SequenceGenerator {
 
     public synchronized String getSequence() {
         StringBuffer buffer = new StringBuffer();
-        buffer.append(prefix);
-        buffer.append(initial + counter++);
-       for(Object suffix :suffixes) {
-           buffer.append("-");
-           buffer.append(suffix);
-       }
+        for(Map.Entry entry : suffixes.entrySet()) {
+            buffer.append("-");
+            buffer.append(entry.getKey());
+            buffer.append("@");
+            buffer.append(entry.getValue());
+        }
         return buffer.toString();
     }
 }
