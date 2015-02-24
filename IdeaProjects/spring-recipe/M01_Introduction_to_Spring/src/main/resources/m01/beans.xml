@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
               http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="sequenceGenerator" class="pl.mpolak.m01_list.SequenceGenerator">
+    <bean id="sequenceGenerator" class="pl.mpolak.m01_list.SequenceGenerator" >
         <property name="prefix" value="30"/>
         <property name="initial" value="100000"/>
         <property name="suffixes">
